@@ -10,9 +10,9 @@ This allows users to search across all code, e.g. to find all code sections that
 
     C:\Trusted
 
-as a trusted folder in Excel. See: [https://support.microsoft.com/en-us/office/add-remove-or-change-a-trusted-location-in-microsoft-office-7ee1cdc2-483e-4cbb-bcb3-4e7c67147fb4](https://support.microsoft.com/en-us/office/add-remove-or-change-a-trusted-location-in-microsoft-office-7ee1cdc2-483e-4cbb-bcb3-4e7c67147fb4)
+    as a trusted folder in Excel. See: [https://support.microsoft.com/en-us/office/add-remove-or-change-a-trusted-location-in-microsoft-office-7ee1cdc2-483e-4cbb-bcb3-4e7c67147fb4](https://support.microsoft.com/en-us/office/add-remove-or-change-a-trusted-location-in-microsoft-office-7ee1cdc2-483e-4cbb-bcb3-4e7c67147fb4)
 
-If you want to use a different folder, you can change the folder in file ExportCodeToExcel.pbitool.json. You can rename the ExportCodeToExcel part of the file name in order to sort the icons on your External Tools ribbon.
+    If you want to use a different folder, you can change the folder in file ExportCodeToExcel.pbitool.json. You can rename the ExportCodeToExcel part of the file name in order to sort the icons on your External Tools ribbon.
 
 2. Copy the files ExportPowerBiCode.vbs and ExportPowerBiCode.xlsx to the trusted folder (C:\Trusted).
 
@@ -20,9 +20,9 @@ If you want to use a different folder, you can change the folder in file ExportC
 
     C:\Program Files (x86)\Common Files\Microsoft Shared\Power BI Desktop\External Tools
 
-Registering a tool requires a restart of Power BI Desktop.
+    Registering a tool requires a restart of Power BI Desktop.
 
-See: [https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools)
+    See: [https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools)
 
 4. When executing the external tool, the generated Excel file is stored in your personal OneDrive\Documents folder. This works only if you have synchronized OneDrive to your Documents folder. Otherwise you can change the folder in file ExportPowerBiCode.vbs in the docpath variable.
 
@@ -32,3 +32,5 @@ See: [https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-externa
 3. Choose to use credentials of the current Windows user and confirm.
 4. Wait for data refresh to finish. Progress is indicated in the Excel status bar at the bottom of the Excel window.
 5. You can browse the Power BI code on the different Excel sheets.
+
+For further assitance send your problem description to <martin.bubenheimer@gmx.de>
