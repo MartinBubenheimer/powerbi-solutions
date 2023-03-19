@@ -28,11 +28,7 @@ See: [https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-externa
 
 ## Usage
 1. In Power BI Desktop, click on the Export Code button on the External tools ribbon.
-
-2. Excel opens. Wait for the dialog that asks for credential for the data source connection.
-
+2. Excel opens. Wait for the dialog that asks for credential for the data source connection (steps 2. and 3. only occure the first time you export the code from the same Power BI file in the same Power BI Desktop session, i.e. the dialog occurs again if you open a different file or if you restart Power BI Desktop).
 3. Choose to use credentials of the current Windows user and confirm.
-
 4. Wait for data refresh to finish. Progress is indicated in the Excel status bar at the bottom of the Excel window.
-
 5. You can browse the Power BI code on the different Excel sheets.
