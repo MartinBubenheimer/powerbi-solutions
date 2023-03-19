@@ -11,6 +11,7 @@ Copy the ExportCodeToExcel.pbitool.json file to your Power BI external tools fol
     C:\Program Files (x86)\Common Files\Microsoft Shared\Power BI Desktop\External Tools
 
 Registering a tool requires a restart of Power BI Desktop.
+
 See: [https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-external-tools)
 
 ## Usage
