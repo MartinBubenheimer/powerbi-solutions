@@ -1,0 +1,1501 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1571,
+  "model": {
+    "name": "Tabular Editor Generated Standalone Premium Dataset",
+    "description": "Adventure Works DW 2019 Finance Cube",
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "forceUniqueNames": true,
+    "discourageImplicitMeasures": true,
+    "dataSourceDefaultMaxConnections": 5,
+    "sourceQueryCulture": "en-US",
+    "maxParallelismPerRefresh": 5,
+    "dataSources": [
+      {
+        "name": "AdventureWorksDW2019",
+        "description": "Adventure Works DW 2019 on hubsterserver Azure SQL DB",
+        "connectionString": "data source=hubsterserver.database.windows.net;initial catalog=AdventureWorksDW2019;persist security info=True;user id=PowerBiReader;password=********",
+        "impersonationMode": "impersonateServiceAccount",
+        "account": "PowerBiReader",
+        "provider": "System.Data.SqlClient"
+      }
+    ],
+    "tables": [
+      {
+        "name": "Date",
+        "lineageTag": "e1318eb7-c3f3-4a30-9a5f-bb227ee600da",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "isKey": true,
+            "sourceColumn": "DateKey",
+            "sourceProviderType": "int",
+            "lineageTag": "9d1beb6e-4d85-49e1-a867-1e0bdd209acc",
+            "dataCategory": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "description": "Full Date Alternate Key",
+            "sourceColumn": "FullDateAlternateKey",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "date",
+            "lineageTag": "eb312a10-ec65-4a0d-9738-2f9eb9abcf9e",
+            "dataCategory": "Date",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day Numbe Of Week",
+            "dataType": "int64",
+            "description": "1=Sunday - 7=Saturday",
+            "sourceColumn": "DayNumberOfWeek",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "b8028254-a655-4972-9b1e-b94d085fc3a7",
+            "dataCategory": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "English Day Name Of Week",
+            "dataType": "string",
+            "description": "Week starts at Sunday",
+            "sourceColumn": "EnglishDayNameOfWeek",
+            "sortByColumn": "Day Numbe Of Week",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "cd297486-7cb1-4e86-814d-c02d6f65eb47",
+            "dataCategory": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Spanish Day Name Of Week",
+            "dataType": "string",
+            "description": "Week starts at Sunday",
+            "sourceColumn": "SpanishDayNameOfWeek",
+            "sortByColumn": "Day Numbe Of Week",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "325187e1-f75c-449f-bc91-a8e674d94424",
+            "dataCategory": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "French Day Name Of Week",
+            "dataType": "string",
+            "description": "Week starts at Sunday",
+            "sourceColumn": "FrenchDayNameOfWeek",
+            "sortByColumn": "Day Numbe Of Week",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "6ed5dbb6-fd71-474e-bf80-7162ee2b4586",
+            "dataCategory": "DayOfWeek",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "description": "Day Number Of Month",
+            "sourceColumn": "DayNumberOfMonth",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "7f45f798-58c0-48ec-889c-c8693b47f509",
+            "dataCategory": "DayOfMonth",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day Number Of Year",
+            "dataType": "int64",
+            "description": "1 - 365 or 1 - 366",
+            "sourceColumn": "DayNumberOfYear",
+            "sourceProviderType": "smallint",
+            "lineageTag": "2e75b026-e38b-4c29-b1f1-3af1341a384e",
+            "dataCategory": "DayOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Week Number Of Year",
+            "dataType": "int64",
+            "description": "1-53, January 1 is always week 1, December 31 is always week 53",
+            "sourceColumn": "WeekNumberOfYear",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "a78324b5-c676-4625-a0a5-b0f958934e3a",
+            "dataCategory": "WeekOfYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "English Month Name",
+            "dataType": "string",
+            "description": "January-December, sorted by calendar year",
+            "sourceColumn": "EnglishMonthName",
+            "sortByColumn": "Month",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "fc81a62f-6aa2-4063-889e-0ffe250c1764",
+            "dataCategory": "Months",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Spanish Month Name",
+            "dataType": "string",
+            "description": "January-December, sorted by calendar year",
+            "sourceColumn": "SpanishMonthName",
+            "sortByColumn": "Month",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "cb2c8b6c-d294-425e-b7a8-329ff1e293b5",
+            "dataCategory": "Months",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "French Month Name",
+            "dataType": "string",
+            "description": "January-December, sorted by calendar year",
+            "sourceColumn": "FrenchMonthName",
+            "sortByColumn": "Month",
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "ac012ccd-6f95-4ce9-a1e3-1bba29464988",
+            "dataCategory": "Months",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "description": "Month Number Of Year, to see months sorted by fiscal year (July-June instead of January-December) build a hierarchy consiting of calendar year and month and use a filter or hierarchy on fiscal year.",
+            "sourceColumn": "MonthNumberOfYear",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "86041919-5e40-40e7-8fcd-e1b55caab0a8",
+            "dataCategory": "Months",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Quarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "f67b93af-3e7d-4253-acf1-206fdb47530c",
+            "dataCategory": "Quarters",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Year",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear",
+            "sourceProviderType": "smallint",
+            "lineageTag": "237e8abb-b67a-4765-86a1-a3ab1ce394d2",
+            "dataCategory": "Years",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Calendar Semester",
+            "dataType": "int64",
+            "sourceColumn": "CalendarSemester",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "1928442d-4558-42e9-bbf8-bf12a9a87dd1",
+            "dataCategory": "Halfyears",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Quarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "bf729ab8-56a4-43a7-8b92-a27139564a72",
+            "dataCategory": "FiscalQuarters",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Year",
+            "dataType": "int64",
+            "description": "A fiscal year may not have 12 months if the start of the fiscal year was changed from one fiscal year to the next.",
+            "sourceColumn": "FiscalYear",
+            "sourceProviderType": "smallint",
+            "lineageTag": "ae796845-76ff-42f2-9159-4a68f97d95ca",
+            "dataCategory": "FiscalYears",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Semester",
+            "dataType": "int64",
+            "sourceColumn": "FiscalSemester",
+            "sourceProviderType": "tinyint",
+            "lineageTag": "8156b4e9-b454-4c42-b06f-2c799ca8eb93",
+            "dataCategory": "FiscalHalfyears",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimDate",
+            "source": {
+              "type": "query",
+              "query": [
+                "SELECT",
+                "\t*",
+                "FROM",
+                "\t[dbo].[DimDate]"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            },
+            "annotations": [
+              {
+                "name": "TabularEditor_TableSchema",
+                "value": "{\"Name\":\"DimDate\",\"Schema\":\"dbo\",\"Database\":\"AdventureWorksDW2019\",\"IncludedColumns\":[\"DateKey\",\"FullDateAlternateKey\",\"DayNumberOfWeek\",\"EnglishDayNameOfWeek\",\"SpanishDayNameOfWeek\",\"FrenchDayNameOfWeek\",\"DayNumberOfMonth\",\"DayNumberOfYear\",\"WeekNumberOfYear\",\"EnglishMonthName\",\"SpanishMonthName\",\"FrenchMonthName\",\"MonthNumberOfYear\",\"CalendarQuarter\",\"CalendarYear\",\"CalendarSemester\",\"FiscalQuarter\",\"FiscalYear\",\"FiscalSemester\"],\"SelectAll\":true}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Scenario",
+        "description": "All scenario facts are stored in one fact table \"Financial Accounting\", including actuals, which are stores as a scenario itself",
+        "lineageTag": "43a27c1c-9223-4c10-b190-7525dabdc2b0",
+        "dataCategory": "Scenario",
+        "columns": [
+          {
+            "name": "ScenarioKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "isKey": true,
+            "sourceColumn": "ScenarioKey",
+            "sourceProviderType": "int",
+            "lineageTag": "d27065e4-794e-4c8f-bf4e-1ecbf30daf31",
+            "dataCategory": "Scenario",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Scenario",
+            "dataType": "string",
+            "description": "Actual, budget, forecast, and alternate scenarios",
+            "sourceColumn": "ScenarioName",
+            "sortByColumn": "ScenarioKey",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar",
+            "lineageTag": "78daf83e-fefa-402c-90bd-a23bbbd0350d",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimScenario",
+            "source": {
+              "type": "query",
+              "query": [
+                "SELECT",
+                "\t*",
+                "FROM",
+                "\t[dbo].[DimScenario]"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            },
+            "annotations": [
+              {
+                "name": "TabularEditor_TableSchema",
+                "value": "{\"Name\":\"DimScenario\",\"Schema\":\"dbo\",\"Database\":\"AdventureWorksDW2019\",\"IncludedColumns\":[\"ScenarioKey\",\"ScenarioName\"],\"SelectAll\":true}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Financial Accounting",
+        "description": "Facts of process \"financial accouting\"",
+        "lineageTag": "613cab91-6a5e-4d0b-bbcd-feaf972b528f",
+        "dataCategory": "Quantitative",
+        "columns": [
+          {
+            "name": "FinanceKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "FinanceKey",
+            "sourceProviderType": "int",
+            "lineageTag": "ea928aee-dc17-4a03-a189-e69a2a585cdf",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DateKey",
+            "sourceProviderType": "int",
+            "lineageTag": "dfe910f7-fe89-4d1f-a717-eed26ce3493a",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OrganizationKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "OrganizationKey",
+            "sourceProviderType": "int",
+            "lineageTag": "c84e36f5-edf6-40ed-9852-2b62e71bdade",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DepartmentGroupKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DepartmentGroupKey",
+            "sourceProviderType": "int",
+            "lineageTag": "b562e549-558c-4e68-bf50-6cc0551e9948",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ScenarioKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ScenarioKey",
+            "sourceProviderType": "int",
+            "lineageTag": "26ac8228-807c-4220-88fd-125e159b97bf",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AccountKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountKey",
+            "sourceProviderType": "int",
+            "lineageTag": "9c2bdc93-5ccd-4dc6-9898-d0207461d28c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "Amount",
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "sourceProviderType": "float",
+            "lineageTag": "9d0a8a11-6b68-43f3-822e-ce50c67444eb",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Date",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "datetime",
+            "lineageTag": "d2e0f0c6-96b1-4f19-a75c-55bdfb5f5e98",
+            "dataCategory": "Date",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactFinanceFullLoad",
+            "source": {
+              "type": "query",
+              "query": [
+                "SELECT",
+                "\t*",
+                "FROM",
+                "\t[dbo].[FactFinance]"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            },
+            "annotations": [
+              {
+                "name": "TabularEditor_TableSchema",
+                "value": "{\"Name\":\"FactFinance\",\"Schema\":\"dbo\",\"Database\":\"AdventureWorksDW2019\",\"IncludedColumns\":[\"FinanceKey\",\"DateKey\",\"OrganizationKey\",\"DepartmentGroupKey\",\"ScenarioKey\",\"AccountKey\",\"Amount\",\"Date\"],\"SelectAll\":true}"
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "CP",
+            "description": "Sum of current period",
+            "expression": [
+              "// Calculate measure",
+              "VAR _Account =",
+              "    SELECTEDVALUE ( 'Account'[Account No.] )",
+              "VAR _Scenario =",
+              "    SELECTEDVALUE ( 'Scenario'[ScenarioKey] )",
+              "VAR _TopLevelAccount =",
+              "    SELECTEDVALUE ( 'Account'[Account Level 1] )",
+              "VAR _SecondLevelAccount =",
+              "    SELECTEDVALUE ( 'Account'[Account Level 2] )",
+              "VAR _ValueInContext =",
+              "    IF (",
+              "        NOT ( ISBLANK ( _Scenario ) ),",
+              "        SWITCH (",
+              "            _Account,",
+              "            \"9530\",",
+              "                [Average Unit Price],",
+              "            \"9510\",",
+              "                [Snapshot Measure],",
+              "            \"9540\",",
+              "                [Snapshot Measure],",
+              "            [Sum Of Amount]",
+              "        ),",
+              "        CALCULATE (",
+              "            SWITCH (",
+              "                _Account,",
+              "                \"9530\",",
+              "                    [Average Unit Price],",
+              "                \"9510\",",
+              "                    [Snapshot Measure],",
+              "                \"9540\",",
+              "                    [Snapshot Measure],",
+              "                [Sum Of Amount]",
+              "            ),",
+              "            'Scenario'[Scenario] = \"Actual\"",
+              "        )",
+              "    )",
+              "VAR _CurrentAccountDepth =",
+              "    MIN( 'Account'[Path Length] )",
+              "VAR _DisplayFactor = ",
+              "    CALCULATE (",
+              "        SELECTEDVALUE ( 'Account'[Display Factor], 1 ),",
+              "        'Account'[Path Length] = _CurrentAccountDepth",
+              "    )",
+              "VAR _Value =",
+              "    IF (",
+              "        _TopLevelAccount = \"9500 Statistical Accounts\" &&",
+              "        ISBLANK ( _SecondLevelAccount ) &&",
+              "        NOT ( ISBLANK ( _ValueInContext ) ),",
+              "        0, // BLANK (), // Statistical Accounts row needs to show a value, otherwise it's not there and cannot be expanded",
+              "        _ValueInContext * _DisplayFactor",
+              "    )",
+              "",
+              "// Hierarchies handling",
+              "",
+              "// Accounts hierarchy",
+              "VAR _AccountShowRow =",
+              "    ( // BrowseDepth",
+              "        ISINSCOPE ( 'Account'[Account Level 1] ) + ISINSCOPE ( 'Account'[Account Level 2] ) + ISINSCOPE ( 'Account'[Account Level 3] ) + ISINSCOPE ( 'Account'[Account Level 4] ) + ISINSCOPE ( 'Account'[Account Level 5] ) + ISINSCOPE ( 'Account'[Account Level 6] ) + ISINSCOPE ( 'Account'[Account Level 7] )",
+              "    ) <= MAX( 'Account'[Path Length] ) // RowDepth",
+              "",
+              "// Departments hierarchy",
+              "VAR _TooDeep = ",
+              "    MAX ( 'Department'[Path Length] ) + 1 < ISINSCOPE ( 'Department'[Department Group Level 1] ) + ISINSCOPE ( 'Department'[Department Group Level 2] ) + ISINSCOPE ( 'Department'[Department Group Level 3] )",
+              "",
+              "VAR _AdditionalLevel = ",
+              "    MAX ( 'Department'[Path Length] ) + 1 = ISINSCOPE ( 'Department'[Department Group Level 1] ) + ISINSCOPE ( 'Department'[Department Group Level 2] ) + ISINSCOPE ( 'Department'[Department Group Level 3] )",
+              "",
+              "VAR _HasData = NOT ( ISBLANK ( _Value ) )",
+              "",
+              "VAR _Leaf = ",
+              "    SELECTEDVALUE (",
+              "        'Department'[Children],",
+              "        0",
+              "    ) = 0",
+              "",
+              "VAR _DepartmentShowRow =",
+              "    IF (",
+              "        NOT _TooDeep,",
+              "        IF (",
+              "            _AdditionalLevel,",
+              "            IF (",
+              "                NOT _Leaf && _HasData,",
+              "                _Value",
+              "            ),",
+              "            true",
+              "        )",
+              "    )",
+              "",
+              "// Organizations hierarchy",
+              "VAR _OrganizationShowRow =",
+              "    ( // BrowseDepth",
+              "        ISINSCOPE ( 'Organization'[Organization Level 1] ) + ISINSCOPE ( 'Organization'[Organization Level 2] ) + ISINSCOPE ( 'Organization'[Organization Level 3] ) + ISINSCOPE ( 'Organization'[Organization Level 4] ) + ISINSCOPE ( 'Organization'[Organization Level 5] )",
+              "    ) <= MAX( 'Organization'[Path Length] ) // RowDepth",
+              "",
+              "RETURN",
+              "    IF (",
+              "        _AccountShowRow &&",
+              "        _DepartmentShowRow &&",
+              "        _OrganizationShowRow,",
+              "        _Value",
+              "    )"
+            ],
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "lineageTag": "cdadf9c9-5bde-4695-a718-36737eadd167"
+          },
+          {
+            "name": "Average Unit Price",
+            "description": "Net Sales divided by units",
+            "expression": [
+              "CALCULATE (",
+              "    DIVIDE (",
+              "        CALCULATE (",
+              "            [Sum Of Amount],",
+              "            'Account'[Account Level 4] = \"4100 Net Sales\"",
+              "        ),",
+              "        CALCULATE (",
+              "            [Sum Of Amount],",
+              "            'Account'[Account Level 2] = \"9520 Units\"",
+              "        )",
+              "    ),",
+              "    ALL ( 'Account' )",
+              ")"
+            ],
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "isHidden": true,
+            "lineageTag": "8d502f92-c03c-4e28-9a41-a67cbe2aab3a"
+          },
+          {
+            "name": "Sum Of Amount",
+            "expression": [
+              "CALCULATE (",
+              "    SUMX ( ",
+              "        VALUES ( 'Account'[Row Factor] ), ",
+              "        CALCULATE ( SUM ( 'Financial Accounting'[Amount] ) ) * [Row Factor] ",
+              "    ),",
+              "    'Account'[Children] = 0",
+              ")"
+            ],
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "isHidden": true,
+            "lineageTag": "aeb864d8-ad22-49f1-aa8a-a4c5bae0ae25"
+          },
+          {
+            "name": "YTD",
+            "description": "Cumulated year to date value, starting with the fiscal year in July.",
+            "expression": "TOTALYTD ( [CP], 'Date'[Date], ALL ( 'Date' ), \"6/30\" )",
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "lineageTag": "d0052038-6161-4fa9-a87c-dea1eb267eb6"
+          },
+          {
+            "name": "Snapshot Measure",
+            "expression": [
+              "VAR _MaxDateWithData = ",
+              "    ROW ( ",
+              "        \"Date\",",
+              "        MAX ( 'Financial Accounting'[Date] )",
+              "    )",
+              "VAR _DateWithLineage = ",
+              "    TREATAS ( _MaxDateWithData, 'Date'[Date] )",
+              "RETURN",
+              "CALCULATE (",
+              "    SUM ( 'Financial Accounting'[Amount] ),",
+              "    _DateWithLineage",
+              ")"
+            ],
+            "formatString": "#,##0.00;(#,##0.00);-",
+            "isHidden": true,
+            "lineageTag": "f1ea2074-746a-4f4d-98eb-c4083cc3df3d"
+          }
+        ]
+      },
+      {
+        "name": "Department",
+        "description": "Functional structure of cost centers/profit centers",
+        "lineageTag": "2025f4bb-dfdc-41ed-98f8-862b0d72952a",
+        "dataCategory": "Organization",
+        "columns": [
+          {
+            "name": "DepartmentGroupKey",
+            "dataType": "int64",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "DepartmentGroupKey",
+            "sourceProviderType": "int",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "8c160f07-4e25-4835-af14-c6006b4b7e66",
+            "dataCategory": "Id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ParentDepartmentGroupKey",
+            "dataType": "int64",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "sourceColumn": "ParentDepartmentGroupKey",
+            "sourceProviderType": "int",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "ba4efb0f-08fb-4393-8383-076b14724133",
+            "dataCategory": "RelationToParent",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Department Name",
+            "dataType": "string",
+            "sourceColumn": "DepartmentGroupName",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "fe8aa5a5-989d-47d3-bbd3-2436c80b71d6",
+            "dataCategory": "OrganizationalUnit",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path",
+            "dataType": "string",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "fca26b4e-7056-4fd7-8cf4-efe62eb994db",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path Length",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path Length",
+            "sourceProviderType": "int",
+            "lineageTag": "fa93d2cb-941e-42c8-8e9d-125d9e69e1da",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Children",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Children",
+            "sourceProviderType": "int",
+            "lineageTag": "7605f2b4-fb75-4cc3-9f2a-457cc4a2670c",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Department Group Level 1",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Department Group Level 1",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "1db5cb8e-9ffe-4163-9342-84e285815d1e",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Department Group Level 2",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Department Group Level 2",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "51539a85-2548-40e9-a769-43da4e4cb640",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Department Group Level 3",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Department Group Level 3",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "36e6683e-5919-42e6-bc04-d3fd0e92d72d",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimDepartmentGroupFullLoad",
+            "mode": "import",
+            "source": {
+              "type": "query",
+              "query": [
+                "EXECUTE [dbo].[spFlattenHierarchy] ",
+                "   @TableName = N'DimDepartmentGroup'",
+                "  ,@IdColumn = N'DepartmentGroupKey'",
+                "  ,@ParentIdColumn = N'ParentDepartmentGroupKey'",
+                "  ,@NameColumn = N'DepartmentGroupName'",
+                "  ,@GenerationLabel = N'Department Group Level'",
+                "  ,@StartGenerationNumber = 1",
+                "  ,@Assignment = 'recursive'"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Department Structure",
+            "lineageTag": "565fbe01-fd06-4da8-90e5-4ae5e137e66d",
+            "levels": [
+              {
+                "name": "Department Group",
+                "ordinal": 0,
+                "column": "Department Group Level 1",
+                "lineageTag": "f71f311c-e4d7-4c02-a33d-abda7c67dc3d"
+              },
+              {
+                "name": "Department",
+                "ordinal": 1,
+                "column": "Department Group Level 2",
+                "lineageTag": "08c6a9e3-c17a-4e27-94c6-c79b2d45b6b2"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Regional structure of organizations",
+        "lineageTag": "9528cabd-293d-40cc-b330-72b2d077a3d0",
+        "dataCategory": "Organization",
+        "columns": [
+          {
+            "name": "OrganizationKey",
+            "dataType": "int64",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "OrganizationKey",
+            "sourceProviderType": "int",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "6c3bb825-fdb1-4c42-bc4c-c4c095dc6e6c",
+            "dataCategory": "Id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ParentOrganizationKey",
+            "dataType": "string",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "sourceColumn": "ParentOrganizationKey",
+            "sourceProviderType": "int",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "4bdeba29-71ea-4ce5-b1ad-34fe855e697d",
+            "dataCategory": "RelationToParent",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Percentage Of Ownership",
+            "dataType": "double",
+            "isNullable": false,
+            "sourceColumn": "PercentageOfOwnership",
+            "formatString": "#,##0.00 %",
+            "sourceProviderType": "nvarchar(16)",
+            "lineageTag": "02e972d8-02b8-4f7f-bdbe-a825d56fbd34",
+            "dataCategory": "PercentOwnership",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Name",
+            "dataType": "string",
+            "description": "Organization names on all levels of the organizational structure",
+            "sourceColumn": "OrganizationName",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "2f0a303d-1ad7-4172-b961-d9b775dcd3e6",
+            "dataCategory": "OrganizationalUnit",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path",
+            "dataType": "string",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "60fdcb8b-94b9-4797-bdcc-5231f4746677",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path Length",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path Length",
+            "sourceProviderType": "int",
+            "lineageTag": "742c6bca-d852-478a-91a9-716b0350eb14",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Children",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Children",
+            "sourceProviderType": "int",
+            "lineageTag": "c05eca75-4e35-4f77-afa5-f750d93edeb8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Level 1",
+            "dataType": "string",
+            "description": "Regional organization level 1",
+            "isHidden": true,
+            "sourceColumn": "Organization Level 1",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "6d4c8243-f286-490a-818e-41d1c72699eb",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Level 2",
+            "dataType": "string",
+            "description": "Regional organization level 2",
+            "isHidden": true,
+            "sourceColumn": "Organization Level 2",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "268e7765-2a5b-43d8-b85d-56578a9c9f50",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Level 3",
+            "dataType": "string",
+            "description": "Regional organization level 3",
+            "isHidden": true,
+            "sourceColumn": "Organization Level 3",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "609b4f78-a495-4363-a96d-b1aa3b5b02da",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Level 4",
+            "dataType": "string",
+            "description": "Regional organization level 4",
+            "isHidden": true,
+            "sourceColumn": "Organization Level 4",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "3469bd64-2bf3-4ffb-b69e-615a20c9ecc1",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Organization Level 5",
+            "dataType": "string",
+            "description": "Regional organization level 5",
+            "isHidden": true,
+            "sourceColumn": "Organization Level 5",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "3c4c68da-cf43-4648-a57a-7b82b942be1d",
+            "dataCategory": "OrganizationalUnit",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimOrganizationFullLoad",
+            "source": {
+              "type": "query",
+              "query": [
+                "EXECUTE [dbo].[spFlattenHierarchy] ",
+                "   @TableName = N'DimOrganization'",
+                "  ,@IdColumn = N'OrganizationKey'",
+                "  ,@ParentIdColumn = N'ParentOrganizationKey'",
+                "  ,@NameColumn = N'OrganizationName'",
+                "  ,@GenerationLabel = N'Organization Level'",
+                "  ,@StartGenerationNumber = 1"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Regional Organization Structure",
+            "lineageTag": "bf642661-71e5-4b19-a226-7ad92862c49f",
+            "levels": [
+              {
+                "name": "Organization",
+                "ordinal": 0,
+                "column": "Organization Level 1",
+                "lineageTag": "71d74ac9-7136-46a2-9368-325900adacea"
+              },
+              {
+                "name": "Organization Level 2",
+                "ordinal": 1,
+                "column": "Organization Level 2",
+                "lineageTag": "5be6d164-b867-4d75-98fd-bb2f7b16b338"
+              },
+              {
+                "name": "Organization Level 3",
+                "ordinal": 2,
+                "column": "Organization Level 3",
+                "lineageTag": "e7b581ad-86a9-4fc1-92af-494a6565e238"
+              },
+              {
+                "name": "Organization Level 4",
+                "ordinal": 3,
+                "column": "Organization Level 4",
+                "lineageTag": "ba035487-5a1c-4ca6-909f-9bf2bc4bbdcd"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Account",
+        "lineageTag": "ac67d089-0b4f-488c-85bd-ff7fb821f1e5",
+        "dataCategory": "Accounts",
+        "columns": [
+          {
+            "name": "AccountKey",
+            "dataType": "int64",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "AccountKey",
+            "sourceProviderType": "int",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "0c9da745-d043-4554-a3bf-93f35ec208df",
+            "dataCategory": "Id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ParentAccountKey",
+            "dataType": "string",
+            "description": "Use in queries or visuals that support parent-child hierarchy structure (requires custom visuals in Microsoft Power BI).",
+            "sourceColumn": "ParentAccountkey",
+            "displayFolder": "⤴️ Parent-Child-Keys",
+            "lineageTag": "945cde5f-d9ea-42c7-b837-96d1ed63b2f3",
+            "dataCategory": "RelationToParent",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Account No.",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AccountCodeAlternateKey",
+            "sourceProviderType": "int",
+            "lineageTag": "f2ba2724-436f-469b-9e10-db0c05b2463f",
+            "dataCategory": "AccountNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Account Description",
+            "dataType": "string",
+            "sourceColumn": "AccountDescription",
+            "sortByColumn": "Account No.",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "2d974719-6a47-48bc-ad55-27e899b4d880",
+            "dataCategory": "AccountName",
+            "isDefaultLabel": true,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Account Type",
+            "dataType": "string",
+            "description": "Assets, Balances, Expenditures, Flow, Liabilities, Revenue, or Statistical",
+            "sourceColumn": "AccountType",
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "bc5a90d3-bb77-4709-ac2a-c427d6a3c651",
+            "dataCategory": "AccountType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Operator",
+            "dataType": "string",
+            "description": "Revenue (+) or expenses (-) account",
+            "isHidden": true,
+            "sourceColumn": "Operator",
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "5d16a16c-38a9-4b29-9ff4-c847c79f703f",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Custom Members",
+            "dataType": "string",
+            "description": "Calcualtions in MDX cube syntax, need to be implemented as measures in Microsoft Power BI/Tabular mode.",
+            "isHidden": true,
+            "sourceColumn": "CustomMembers",
+            "keepUniqueRows": true,
+            "sourceProviderType": "nvarchar(300)",
+            "lineageTag": "74a63d06-e616-4fce-b977-d6942811d70d",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Value Type",
+            "dataType": "string",
+            "description": "Currency or Units",
+            "sourceColumn": "ValueType",
+            "sourceProviderType": "nvarchar(50)",
+            "lineageTag": "27345625-bfc4-4388-a6a8-bc69f32eaabd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Custom Member Options",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CustomMemberOptions",
+            "sourceProviderType": "nvarchar(200)",
+            "lineageTag": "6781965d-da4c-4080-a622-1e5c9d2b9687",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path",
+            "dataType": "string",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "ea814929-aac4-44d2-9c9b-67d0c9b59bd2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Path Length",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Path Length",
+            "sourceProviderType": "int",
+            "lineageTag": "c09fb3ef-f452-415f-b80b-8849dbea458f",
+            "alignment": "left",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Children",
+            "dataType": "int64",
+            "isHidden": true,
+            "isNullable": false,
+            "sourceColumn": "Children",
+            "sourceProviderType": "int",
+            "lineageTag": "eda2cf98-c921-44e9-b6a8-e03d65b14496"
+          },
+          {
+            "name": "Account Level 1",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 1",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "71c4a8ca-7502-4067-9d1d-1095d9c1055a",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 2",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 2",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "c255ede7-013e-40b9-968c-e13f069de758",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 3",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 3",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "f67ff34c-3f63-4122-bf70-7e91ee036689",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 4",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 4",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "c80044cd-6666-4c49-9e42-2120e83e36d8",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 5",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 5",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "302300e7-ea80-479b-ab6e-3e2d3b841d2b",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 6",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 6",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "6873289e-2c8b-4130-bbf0-ccfe31a34205",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Account Level 7",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Account Level 7",
+            "sourceProviderType": "nvarchar(MAX)",
+            "lineageTag": "aa72360f-a5e2-484e-a90f-e09a5ea40382",
+            "dataCategory": "AccountName"
+          },
+          {
+            "name": "Row Factor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Factor",
+            "sourceProviderType": "int",
+            "lineageTag": "401d592e-7b84-43c9-83cc-c575cd01cdad"
+          },
+          {
+            "name": "Display Factor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DisplayFactor",
+            "sourceProviderType": "int",
+            "lineageTag": "87ec3deb-21fa-45d7-866d-a851991505b2"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimOrganizationFullLoad",
+            "mode": "import",
+            "source": {
+              "type": "query",
+              "query": [
+                "DECLARE @GenerationCount int",
+                "EXEC @GenerationCount = [dbo].[spCountHierarchyGenerations]",
+                "    @TableName = N'DimAccount',",
+                "    @IdColumn = N'AccountKey',",
+                "    @ParentIdColumn = N'ParentAccountKey'",
+                "",
+                "IF @GenerationCount + 1 < 1",
+                "    SET @GenerationCount = 1",
+                "ELSE",
+                "    SET @GenerationCount = @GenerationCount + 1",
+                "",
+                "DECLARE @IdColumns nvarchar(MAX)",
+                "SET @IdColumns = ''",
+                "DECLARE @PathDelimiter nchar",
+                "SET @PathDelimiter = N'|'",
+                "DECLARE @NameColumns nvarchar(MAX)",
+                "SET @NameColumns = ''",
+                "DECLARE @Generation int",
+                "DECLARE @XmlIndex int",
+                "",
+                "SET @Generation = 1",
+                "WHILE @Generation < @GenerationCount + 1",
+                "BEGIN",
+                "    SET @XmlIndex = 1 + @Generation - 1",
+                "    IF @Generation <> 1",
+                "        SET @IdColumns = @IdColumns + ','",
+                "    SET @IdColumns = @IdColumns + '",
+                "        [' + 'Operator Level' + ' ' + CAST(@Generation AS nvarchar(MAX)) + '] = XmlPath.value(''/x[' + CAST(@XmlIndex AS nvarchar(MAX)) + ']'',''nvarchar(max)'')",
+                "    '",
+                "    SET @Generation = @Generation + 1",
+                "END",
+                "IF ('0' = 'standard' OR '0' = '0')",
+                "    BEGIN",
+                "        SET @Generation = 1",
+                "        WHILE @Generation < @GenerationCount + 1",
+                "        BEGIN",
+                "            SET @XmlIndex = 1 + @Generation - 1",
+                "            IF @Generation <> 1",
+                "                SET @NameColumns = @NameColumns + ','",
+                "            SET @NameColumns = @NameColumns + '",
+                "                [' + 'Account Level' + ' ' + CAST(@Generation AS nvarchar(MAX)) + '] = XmlPath.value(''/x[' + CAST(@XmlIndex AS nvarchar(MAX)) + ']'',''nvarchar(max)'')",
+                "            '",
+                "            SET @Generation = @Generation + 1",
+                "        END",
+                "    END",
+                "ELSE",
+                "    BEGIN",
+                "        SET @Generation = 1",
+                "",
+                "        WHILE @Generation < @GenerationCount + 1",
+                "        BEGIN",
+                "            SET @XmlIndex = 1 + @Generation - 1",
+                "            IF @Generation <> 1",
+                "                BEGIN",
+                "                    SET @NameColumns = @NameColumns + ','",
+                "                    SET @NameColumns = @NameColumns + '",
+                "                        [' + 'Account Level' + ' ' + CAST(@Generation AS nvarchar(MAX)) + '] = ",
+                "                            CASE",
+                "                                WHEN XmlPath.value(''/x[' + CAST(@XmlIndex AS nvarchar(MAX)) + ']'',''nvarchar(max)'') IS NULL AND",
+                "                                    (SELECT COUNT(Child) FROM ParentChildHierarchy WHERE Parent = A.Child) > 0",
+                "                                THEN XmlPath.value(''/x[' + CAST((@XmlIndex - 1) AS nvarchar(MAX)) + ']'',''nvarchar(max)'')",
+                "                                ELSE XmlPath.value(''/x[' + CAST(@XmlIndex AS nvarchar(MAX)) + ']'',''nvarchar(max)'')",
+                "                            END",
+                "                    '",
+                "                END",
+                "            ELSE",
+                "                BEGIN",
+                "                    SET @NameColumns = @NameColumns + '",
+                "                        [' + 'Account Level' + ' ' + CAST(@Generation AS nvarchar(MAX)) + '] = XmlPath.value(''/x[' + CAST(@XmlIndex AS nvarchar(MAX)) + ']'',''nvarchar(max)'')",
+                "                    '",
+                "                END",
+                "            SET @Generation = @Generation + 1",
+                "        END",
+                "",
+                "    END",
+                "",
+                "DECLARE @Sql nvarchar(MAX)",
+                "SET @Sql = '",
+                "    WITH ParentChildHierarchy AS (",
+                "        SELECT ",
+                "                pc.Name",
+                "            ,pc.Child",
+                "            ,pc.Parent",
+                "            ,Path = CAST(pc.Child AS nvarchar(MAX))",
+                "            ,NamePath = CAST(CAST((SELECT pc.Name FOR XML PATH('''')) AS XML) AS nvarchar(MAX))",
+                "            ,OperatorPath = CAST(CAST((SELECT pc.Operator FOR XML PATH('''')) AS XML) AS nvarchar(MAX))",
+                "            ,[Path Length]",
+                "        FROM (",
+                "            SELECT",
+                "                    Name = ' + N'CONCAT(AccountCodeAlternateKey, '' '', AccountDescription)' + '",
+                "                ,Operator = Operator",
+                "                ,Child = ' + N'AccountKey' + '",
+                "                ,Parent = ' + N'ParentAccountKey' + '",
+                "                ,[Path Length] = 1",
+                "            FROM",
+                "                ' + N'DimAccount' + '",
+                "        ) pc",
+                "        WHERE  pc.Parent IS NULL",
+                "        UNION ALL",
+                "        SELECT",
+                "                Name = r.Name",
+                "            ,Child = r.Child",
+                "            ,Parent = r.Parent ",
+                "            ,Path = CAST(p.Path + ''' + @PathDelimiter + ''' + CAST(r.Child AS nvarchar(MAX)) AS nvarchar(MAX))",
+                "            ,NamePath = CAST(p.NamePath + N''' + @PathDelimiter + ''' + CAST(CAST((SELECT r.Name FOR XML PATH('''')) AS XML) AS nvarchar(MAX)) AS nvarchar(MAX))",
+                "            ,OperatorPath = CAST(p.OperatorPath + ''' + @PathDelimiter + ''' + CAST(r.Operator AS nvarchar(MAX)) AS nvarchar(MAX))",
+                "            ,[Path Length] = [Path Length] + 1",
+                "        FROM (",
+                "            SELECT",
+                "                    Name = ' + N'CONCAT(AccountCodeAlternateKey, '' '', AccountDescription)' + '",
+                "                ,Operator = Operator",
+                "                ,Child = ' + N'AccountKey' + '",
+                "                ,Parent = ' + N'ParentAccountKey' + '",
+                "            FROM",
+                "                ' + N'DimAccount' + '",
+                "        ) r",
+                "        JOIN ParentChildHierarchy p on r.Parent  = p.Child",
+                "    )",
+                "    SELECT",
+                "            [Path Id] = Child",
+                "        ,Path",
+                "        ,[Path Length]",
+                "        ,Children = (SELECT COUNT(Child) FROM ParentChildHierarchy WHERE Parent = A.Child)",
+                "        ,N.* ' +",
+                "'           ,B.* ' +",
+                "'       INTO [#HierarchyColumns]",
+                "    FROM ParentChildHierarchy A ' +",
+                "'       CROSS APPLY (",
+                "        SELECT",
+                "            ' + @IdColumns + '",
+                "        FROM (",
+                "            SELECT XmlPath = CAST(''<x>'' + REPLACE(OperatorPath,''' + @PathDelimiter + ''',''</x><x>'')+''</x>'' AS xml)",
+                "        ) AS X ",
+                "    ) B ' + ",
+                "'       CROSS APPLY (",
+                "        SELECT",
+                "            ' + @NameColumns + '",
+                "        FROM (",
+                "            SELECT XmlPath = CAST(''<x>'' + REPLACE(NamePath,''' + @PathDelimiter + ''',''</x><x>'')+''</x>'' AS xml)",
+                "        ) AS X ",
+                "    ) N",
+                "",
+                "    SELECT ",
+                "        t.*,",
+                "        h.*",
+                "    INTO [#FullDimensionTable]",
+                "    FROM ' + N'DimAccount' + ' t",
+                "    LEFT JOIN [#HierarchyColumns] h ON h.[Path Id] = t.' + N'AccountKey' + '",
+                "",
+                "    ALTER TABLE [#FullDimensionTable] DROP COLUMN [Path Id]",
+                "",
+                "    SELECT ",
+                "            *",
+                "        ,Factor =",
+                "            CASE",
+                "                WHEN (LEN(",
+                "                    CONCAT(",
+                "                        [Operator Level 1],",
+                "                        [Operator Level 2],",
+                "                        [Operator Level 3],",
+                "                        [Operator Level 4],",
+                "                        [Operator Level 5],",
+                "                        [Operator Level 6],",
+                "                        [Operator Level 7]",
+                "                    )",
+                "                ) - LEN(REPLACE(",
+                "                    CONCAT(",
+                "                        [Operator Level 1],",
+                "                        [Operator Level 2],",
+                "                        [Operator Level 3],",
+                "                        [Operator Level 4],",
+                "                        [Operator Level 5],",
+                "                        [Operator Level 6],",
+                "                        [Operator Level 7]",
+                "                    )",
+                "                , N''-'', N''''))) % 2 = 1",
+                "                THEN -1",
+                "                ELSE 1",
+                "            END",
+                "        ,DisplayFactor =",
+                "            CASE",
+                "                WHEN",
+                "                    CHARINDEX(",
+                "                        ''-'',",
+                "                        CONCAT(",
+                "                            [Operator Level 1],",
+                "                            [Operator Level 2],",
+                "                            [Operator Level 3],",
+                "                            [Operator Level 4],",
+                "                            [Operator Level 5],",
+                "                            [Operator Level 6],",
+                "                            [Operator Level 7]",
+                "                        )",
+                "                    ) > 0 AND",
+                "                    CHARINDEX(",
+                "                        ''-'',",
+                "                        CONCAT(",
+                "                            [Operator Level 1],",
+                "                            [Operator Level 2],",
+                "                            [Operator Level 3],",
+                "                            [Operator Level 4],",
+                "                            [Operator Level 5],",
+                "                            [Operator Level 6],",
+                "                            [Operator Level 7]",
+                "                        )",
+                "                    ) < [Path Length]",
+                "                THEN -1",
+                "                ELSE 1",
+                "            END",
+                "    FROM [#FullDimensionTable]",
+                "'",
+                "EXEC(@Sql)"
+              ],
+              "dataSource": "AdventureWorksDW2019"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Chart Of Accounts",
+            "lineageTag": "9e6c3e09-7d0e-4d1d-8cc9-7e48652a300c",
+            "levels": [
+              {
+                "name": "Account",
+                "ordinal": 0,
+                "column": "Account Level 1",
+                "lineageTag": "4bd76326-36b1-47b7-80f9-e4b668cf22f6"
+              },
+              {
+                "name": "Account Level 2",
+                "ordinal": 1,
+                "column": "Account Level 2",
+                "lineageTag": "3f85d62d-bee5-4641-9735-9f02fb07bc4b"
+              },
+              {
+                "name": "Account Level 3",
+                "ordinal": 2,
+                "column": "Account Level 3",
+                "lineageTag": "9d9caf2b-3591-4e7b-9df5-0e455594f059"
+              },
+              {
+                "name": "Account Level 4",
+                "ordinal": 3,
+                "column": "Account Level 4",
+                "lineageTag": "89dd4f3f-f873-407b-94fc-2fda1bad8659"
+              },
+              {
+                "name": "Account Level 5",
+                "ordinal": 4,
+                "column": "Account Level 5",
+                "lineageTag": "f3d6fe3b-f900-45e1-9bc1-c1ca83ba9adf"
+              },
+              {
+                "name": "Account Level 6",
+                "ordinal": 5,
+                "column": "Account Level 6",
+                "lineageTag": "aa562779-8dbe-4e47-a0b5-259985eafc59"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "💻 Display Units",
+        "description": "Apply units to measures",
+        "lineageTag": "a80d6398-f80f-46b8-81e2-4c5797e79499",
+        "calculationGroup": {
+          "description": "Apply units to measures",
+          "calculationItems": [
+            {
+              "name": "Plain",
+              "expression": "SELECTEDMEASURE ()"
+            },
+            {
+              "name": "Units Applied",
+              "expression": "SELECTEDMEASURE ()",
+              "formatStringDefinition": {
+                "expression": [
+                  "SWITCH ( ",
+                  "    SELECTEDVALUE ( 'Account'[Value Type] ),",
+                  "    \"Currency\", \"$ #,##0.00;$ (#,##0.00);-\",",
+                  "    \"Units\",",
+                  "    SWITCH (",
+                  "        SELECTEDVALUE ( 'Account'[Account No.] ),",
+                  "        \"9540\", \"#,##0.\"\" ft²\"\";(#,##0.)\"\" ft²\"\";-\",",
+                  "        \"9510\", \"#,##0.\"\" HC\"\";(#,##0.)\"\" HC\"\";-\",",
+                  "        \"#,##0.\"\" pcs.\"\";(#,##0.)\"\" pcs.\"\";-\"",
+                  "    ),",
+                  "    \"#,##0.00;(#,##0.00);-\"",
+                  ")"
+                ]
+              }
+            }
+          ]
+        },
+        "columns": [
+          {
+            "name": "Display Option",
+            "dataType": "string",
+            "description": "Select units to show",
+            "sourceColumn": "Name",
+            "sortByColumn": "Ordinal"
+          },
+          {
+            "name": "Ordinal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Ordinal"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "4570447f-a8e4-4bea-adc2-5b127fa9a86a",
+        "fromTable": "Financial Accounting",
+        "fromColumn": "AccountKey",
+        "toTable": "Account",
+        "toColumn": "AccountKey",
+        "joinOnDateBehavior": "datePartOnly"
+      },
+      {
+        "name": "a3914bce-1035-4603-a9f9-bc408d09226f",
+        "fromTable": "Financial Accounting",
+        "fromColumn": "DateKey",
+        "toTable": "Date",
+        "toColumn": "DateKey",
+        "joinOnDateBehavior": "datePartOnly"
+      },
+      {
+        "name": "d0fc78c1-ea1f-4db7-84a2-10c7ac4de2e2",
+        "fromTable": "Financial Accounting",
+        "fromColumn": "DepartmentGroupKey",
+        "toTable": "Department",
+        "toColumn": "DepartmentGroupKey",
+        "joinOnDateBehavior": "datePartOnly"
+      },
+      {
+        "name": "90d9d1f9-4f67-4905-bdea-6388e0b5463e",
+        "fromTable": "Financial Accounting",
+        "fromColumn": "OrganizationKey",
+        "toTable": "Organization",
+        "toColumn": "OrganizationKey",
+        "joinOnDateBehavior": "datePartOnly"
+      },
+      {
+        "name": "020ee90f-35b1-4354-bb74-ea0e4fde5408",
+        "fromTable": "Financial Accounting",
+        "fromColumn": "ScenarioKey",
+        "toTable": "Scenario",
+        "toColumn": "ScenarioKey",
+        "joinOnDateBehavior": "datePartOnly"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "TabularEditor_SerializeOptions",
+        "value": "{\"IgnoreInferredObjects\":true,\"IgnoreInferredProperties\":true,\"IgnoreTimestamps\":true,\"SplitMultilineStrings\":true,\"PrefixFilenames\":false,\"LocalTranslations\":false,\"LocalPerspectives\":false,\"LocalRelationships\":false,\"Levels\":[\"Data Sources\",\"Perspectives\",\"Relationships\",\"Roles\",\"Shared Expressions\",\"Tables\",\"Tables/Calculation Items\",\"Tables/Columns\",\"Tables/Hierarchies\",\"Tables/Measures\",\"Tables/Partitions\",\"Translations\"]}"
+      }
+    ]
+  }
+}
