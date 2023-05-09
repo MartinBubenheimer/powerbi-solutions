@@ -10,4 +10,4 @@ The PageViewsXmlaQuery.ps1 PowerShell script reads the page views from the Usage
 Check the comments to adjust the script to meet your needs, e.g.
 - Authenticate using a service principal
 - Write files to a data lake
-- Query only a limited data range of usage data
+- Query only a limited date range of usage data
