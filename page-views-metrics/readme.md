@@ -9,5 +9,7 @@ When creating a new workspace, you first need to add a report, e.g. add a templa
 The PageViewsXmlaQuery.ps1 PowerShell script reads the page views from the Usage Metrics Report datasets in each workspace and stores one file per workspace and day.
 Check the comments to adjust the script to meet your needs, e.g.
 - Authenticate using a service principal
-- Write files to a data lake
+- Write files to a data lake or a different location
 - Query only a limited date range of usage data
+To run the script as-is, you need to have a folder C:\Temp on your machine and you need to have write-access to it. In this case the script copies all page views data that is currently avaiable and accessible to the authenticated identity into CSV files on your local drive.
+Be aware that usage metrics data is only available in the dataset with a delay of up to a few days.
