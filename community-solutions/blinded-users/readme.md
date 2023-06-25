@@ -16,7 +16,7 @@ with the selection of any user from the slicer the box plot will show up the use
 
 # Solution
 
-Check the attached file <https://github.com/MartinBubenheimer/powerbi-solutions/raw/main/community-solutions/blinded-users/blinded-users.pbix> for the pattern you need. For the bi-directional relationship, it's important to turn on the setting that security is apllied in both directions.
+Check the attached file <https://github.com/MartinBubenheimer/powerbi-solutions/raw/main/community-solutions/blinded-users/blinded-users.pbix> for the pattern you need. For the bi-directional relationship, it's important to turn on the setting that security is applied in both directions.
 
 The security role that you need to apply is "Blinded Users".
 
