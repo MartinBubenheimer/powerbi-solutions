@@ -27,15 +27,15 @@ If you already have a gateway running, you can just add the custom connector .me
 - [forms](https://forms.office.com/formapi/api/forms): List of all forms including their formid that are accessible for the requesting identity.
 - [runtimeForms](https://forms.office.com/formapi/api/runtimeForms)
 - [analysisForms](https://forms.office.com/formapi/api/analysisForms)
-- [sharedWithMeForms](https://forms.office.com/formapi/api/sharedWithMeForms)
-- [groups](https://forms.office.com/formapi/api/groups)
+- [sharedWithMeForms](https://forms.office.com/formapi/api/sharedWithMeForms): List of share with me forms.
+- [groups](https://forms.office.com/formapi/api/groups): Groups are teams.
 - [permissionTokens](https://forms.office.com/formapi/api/permissionTokens)
 - [users](https://forms.office.com/formapi/api/users)
 - [photos](https://forms.office.com/formapi/api/photos)
 - [responses](https://forms.office.com/formapi/api/responses)
-- [userInfo](https://forms.office.com/formapi/api/userInfo)
-- [GetFormsTenantSettings](https://forms.office.com/formapi/api/GetFormsTenantSettings)
-- [GetCurrentUserPhotoValue](https://forms.office.com/formapi/api/GetCurrentUserPhotoValue)
+- [userInfo](https://forms.office.com/formapi/api/userInfo): Info about the current user.
+- [GetFormsTenantSettings](https://forms.office.com/formapi/api/GetFormsTenantSettings): Forms tenant settings.
+- [GetCurrentUserPhotoValue](https://forms.office.com/formapi/api/GetCurrentUserPhotoValue): Metadata of the photo of the current user.
 - [GetRespCounts](https://forms.office.com/formapi/api/GetRespCounts)
 - [DownloadExcelFile.ashx](https://forms.office.com/formapi/DownloadExcelFile.ashx?formid=ozwsJ8LM6EmqBnbI-zGKxH2rfh_vSOJEs_u6DG795r1URVFGSUVEVFZHSlQ0M1lJQTRaTjdEM1pJNC4u&timezoneOffset=0&minResponseId=1&maxResponseId=1000): Returns an Excel-file with reponses. There is a maximum of 1000 rows returned per file. If the survey has more than 1000 rows, the connector needs to implement paging.
 
