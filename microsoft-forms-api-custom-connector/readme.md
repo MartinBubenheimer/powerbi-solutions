@@ -47,3 +47,5 @@ If you already have a gateway running, you can just add the custom connector .me
 You can access these API resources directly from the web-browser, but you first must have logged in at the forms web-app at [https://forms.office.com/](https://forms.office.com/).
 
 Further discussion: [https://techcommunity.microsoft.com/t5/microsoft-forms/api-to-access-ms-forms/m-p/1463830/page/2](https://techcommunity.microsoft.com/t5/microsoft-forms/api-to-access-ms-forms/m-p/1463830/page/2)
+
+[OData query options.](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview)
