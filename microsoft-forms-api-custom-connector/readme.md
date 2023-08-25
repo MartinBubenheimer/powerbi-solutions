@@ -22,6 +22,7 @@ If you already have a gateway running, you can just add the custom connector .me
 
 ## [Microsoft Forms API Resources](https://forms.office.com/formapi/api/$metadata)
 
+- [API dictionary](https://forms.office.com/formapi/api)
 - [formsCore](https://forms.office.com/formapi/api/formsCore)
 - [runtimeFormsCore](https://forms.office.com/formapi/api/runtimeFormsCore)
 - [forms](https://forms.office.com/formapi/api/forms): List of all forms including their formid that are accessible for the requesting identity.
