@@ -11,7 +11,7 @@
       <am:Name>PBIRB</am:Name>
       <am:Version>15.7.1806.11</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2023-10-29T23:17:16.5475612Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2023-10-30T00:25:02.4770007Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -148,7 +148,6 @@ EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('MyTa
         <CommandText>DEFINE
     VAR _FromDate = @FromMyTabledate
     VAR _ToDate   = @ToMyTabledate
-
 EVALUATE
 SUMMARIZECOLUMNS (
     'MyTable'[name],
@@ -157,13 +156,13 @@ SUMMARIZECOLUMNS (
         VALUES ( 'MyTable'[date] ),
         (
             IF(
-                NOT ( ISBLANK ( @FromMyTabledate ) ),
-                [date] &gt;= @FromMyTabledate,
+                NOT ( ISBLANK ( _FromDate ) ),
+                [date] &gt;= _FromDate,
                 TRUE ()
             )  &amp;&amp; 
             IF (
-                NOT ( ISBLANK ( @ToMyTabledate ) ),
-                [date] &lt;= @ToMyTabledate,
+                NOT ( ISBLANK ( _ToDate ) ),
+                [date] &lt;= _ToDate,
                 TRUE ()
             )
         )
@@ -287,47 +286,11 @@ SELECTCOLUMNS (
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Max(Fields!date.Value)</Value>
+                                  <Value>=Fields!date.Value</Value>
                                   <Style>
+                                    <FontStyle>Normal</FontStyle>
                                     <FontWeight>Normal</FontWeight>
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BackgroundColor>White</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>6mm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox6">
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Max(Fields!date.Value)</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
                                     <Color>#333333</Color>
                                   </Style>
                                 </TextRun>
@@ -430,7 +393,9 @@ SELECTCOLUMNS (
                               <TextRun>
                                 <Value>=Fields!name.Value</Value>
                                 <Style>
+                                  <FontStyle>Normal</FontStyle>
                                   <FontWeight>Normal</FontWeight>
+                                  <TextDecoration>None</TextDecoration>
                                   <Color>#333333</Color>
                                 </Style>
                               </TextRun>
@@ -460,50 +425,13 @@ SELECTCOLUMNS (
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>51.28194mm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox5">
-                        <rd:DefaultName>Textbox5</rd:DefaultName>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Gesamt</Value>
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#333333</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                          </Border>
-                          <BackgroundColor>White</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>MyTable</DataSetName>
             <Top>12.7mm</Top>
             <Left>0mm</Left>
-            <Height>18mm</Height>
-            <Width>102.56389mm</Width>
+            <Height>12mm</Height>
+            <Width>102.56388mm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
