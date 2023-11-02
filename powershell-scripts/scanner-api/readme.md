@@ -1,1 +1,1 @@
-PowerShell script to show how complete tenant metadata can be exported using scanner API
+PowerShell script to export complete tenant metadata using scanner API
