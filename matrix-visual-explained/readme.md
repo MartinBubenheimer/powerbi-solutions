@@ -11,3 +11,7 @@ For the Matrix visual, this constraint is not enforced to allow for a more unive
 
 The SQL code in this example explains how the structure of a Matrix query applies the measure to calculate the values and totals. 
 In Power BI, the query of the dataset always returns an unpivoted table, pivoting the result into the Matrix visual is done on visual level. 
+
+A useful idea to better understand the behavior of Power BI measure is the compare them in our mental model rather with SQL queries than with Excel cell formulas.
+
+These examples are designed for AdventrueWorksDW2019 database.
