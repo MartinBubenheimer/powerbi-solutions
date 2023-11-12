@@ -6,7 +6,7 @@
 SELECT
 	 [Region] = COALESCE([Region], 'Total')
 	,[2010], [2011], [2012], [2013], [Total]
-FROM
+FROM -- In Power BI, the visual runs a query like this inner [Table] query to get the data, pivoting the data into the [Matrix] visual is done on visual level
 (
 	SELECT
 		 [Region] = [t].[SalesTerritoryRegion]
