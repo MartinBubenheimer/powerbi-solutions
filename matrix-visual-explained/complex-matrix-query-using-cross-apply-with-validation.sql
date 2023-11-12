@@ -7,6 +7,8 @@ SELECT                                                                     -- de
 	 [Country]   = COALESCE([t].[SalesTerritoryCountry], 'Total')          -- by country...
 	,[Quarter]   = COALESCE(CONVERT(CHAR, [d].[CalendarQuarter]), 'Total') -- ... and quarter
 	,[Discounted Amount] = ROUND(SUM([ca].[Context Discounted Amount]), 2) -- SUM aggregator required to use ROLLUP, but is always just the sum of one value
+	,[Amount] = SUM([s].[SalesAmount])
+	,[% Off] = CONVERT(MONEY, ROUND((1 - (SUM([ca].[Context Discounted Amount]) / NULLIF(SUM([s].[SalesAmount]), 0))) * 100, 1))
 FROM
 	[dbo].[FactResellerSales] [s]
 INNER JOIN                                                                 
@@ -52,6 +54,8 @@ CROSS APPLY (
 	) [i]
 ) [ca]
 WHERE 1=1
+	AND [d].[DateKey]           = [s].[OrderDateKey]
+	AND [t].[SalesTerritoryKey] = [s].[SalesTerritoryKey]
 --	AND [d].[CalendarYear] = 2012                                          -- filters can be applied here, e.g. for a specific year
 GROUP BY ROLLUP (                                                          -- rollup is reevaluating its entire context, not reusing smaller aggregates
 	 [d].[CalendarQuarter]

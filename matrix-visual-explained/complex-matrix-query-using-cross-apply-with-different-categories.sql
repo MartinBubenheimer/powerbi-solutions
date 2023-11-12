@@ -4,15 +4,21 @@
 -- Desinged for: AdventureWorksDW2019
 -- Remark: There are not necessarily sales for all country and quarter combinations
 SELECT                                                                     -- defining the context of the visual: context is independend of business rules (!)
-	 [Country]   = COALESCE([t].[SalesTerritoryCountry], 'Total')          -- by country...
-	,[Quarter]   = COALESCE(CONVERT(CHAR, [d].[CalendarQuarter]), 'Total') -- ... and quarter
+	 [Product Category]   = IIF(GROUPING_ID([c].[EnglishProductCategoryName]) = 0, COALESCE([c].[EnglishProductCategoryName], 'N/A'), 'Total') -- by prduct group...
+	,[Year]   = COALESCE(CONVERT(CHAR(4), [d].[CalendarYear]), 'Total') -- ... and year
 	,[Discounted Amount] = ROUND(SUM([ca].[Context Discounted Amount]), 2) -- SUM aggregator required to use ROLLUP, but is always just the sum of one value
+	,[Amount] = SUM([s].[SalesAmount])
+	,[% Off] = CONVERT(MONEY, ROUND((1 - (SUM([ca].[Context Discounted Amount]) / NULLIF(SUM([s].[SalesAmount]), 0))) * 100, 1))
 FROM
 	[dbo].[FactResellerSales] [s]
 INNER JOIN                                                                 
 	[dbo].[DimDate] [d]           ON [d].[DateKey] = [s].[OrderDateKey]
 INNER JOIN
-	[dbo].[DimSalesTerritory] [t] ON [t].[SalesTerritoryKey] = [s].[SalesTerritoryKey]
+	[dbo].[DimProduct] [p] ON [p].[ProductKey] = [s].[ProductKey]
+LEFT JOIN -- not every product is assigned to a product category
+	[dbo].[DimProductSubCategory] [u] ON [u].[ProductSubCategoryKey] = [p].[ProductSubcategoryKey]
+LEFT JOIN
+	[dbo].[DimProductCategory] [c] ON [c].[ProductCategoryKey] = [u].[ProductSubcategoryKey]
 CROSS APPLY (
 	SELECT
 	    [Context Discounted Amount] = CONVERT(MONEY, SUM([i].[Amount]))    -- total discounted amount in any context is the discounted amount in the context plus the undiscounted amount in the context
@@ -54,11 +60,11 @@ CROSS APPLY (
 WHERE 1=1
 --	AND [d].[CalendarYear] = 2012                                          -- filters can be applied here, e.g. for a specific year
 GROUP BY ROLLUP (                                                          -- rollup is reevaluating its entire context, not reusing smaller aggregates
-	 [d].[CalendarQuarter]
-	,[t].[SalesTerritoryCountry]
+	 [d].[CalendarYear]
+	,[c].[EnglishProductCategoryName]
 )
 ORDER BY
-	 GROUPING_ID([d].[CalendarQuarter])
-	,[d].[CalendarQuarter]
-	,GROUPING_ID([t].[SalesTerritoryCountry])
-	,[t].[SalesTerritoryCountry]
+	 GROUPING_ID([d].[CalendarYear])
+	,[d].[CalendarYear]
+	,GROUPING_ID([c].[EnglishProductCategoryName])
+	,[c].[EnglishProductCategoryName]
