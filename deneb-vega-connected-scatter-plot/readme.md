@@ -2,6 +2,8 @@
 
 Purpse of this solution is to show a Lorenz Curve, e.g., for ABC analysis.
 
+![Vega](https://github.com/MartinBubenheimer/powerbi-solutions/blob/main/deneb-vega-connected-scatter-plot/deneb-lorenz-curve.png?raw=true)
+
 The Power BI file shows different approaches:
 * Power BI native visual using scatter plot.
 * Deneb visual showing values from Power BI DAX measures
