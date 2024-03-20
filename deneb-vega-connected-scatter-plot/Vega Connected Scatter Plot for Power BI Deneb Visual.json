@@ -54,19 +54,21 @@
       "name": "x",
       "type": "linear",
       "domain": [0,1],
-      "range": "width"
+      "range": "width",
+      "zero": true
     },
     {
       "name": "y",
       "type": "linear",
       "domain": [0,1],
       "range": "height",
+      "zero": true,
       "nice": true
     }
   ],
   "axes": [
-    {"orient": "bottom", "scale": "x", "format": "%", "grid": true},
-    {"orient": "left", "scale": "y", "format": "%", "grid": true}
+    {"orient": "bottom", "scale": "x", "format": "%", "domain": true},
+    {"orient": "left", "scale": "y", "format": "%", "domain": true, "grid": true, "gridColor": "black", "gridOpacity": 0.2, "gridWidth": 1, "gridDash": [10,5], "tickCount": 4}
   ],
   "marks": [
     {
