@@ -15,12 +15,6 @@
       "transform": [
           {
             "type": "collect",
-            "fields": [
-              "Customer",
-              "Rank",
-              "Sales",
-              "Tooltip"
-            ],
             "sort":  {
               "field": "Sales",
               "order": "descending"
@@ -110,7 +104,7 @@
           "x": {"scale": "x", "field": "RankCum", "offset": 2},
           "y": {"scale": "y", "field": "SalesCum", "offset": 3},
           "text": {"signal": "pbiFormat(datum['SalesCum'], '#,0.0%;-#,0.0%;#,0.0%')"},
-          "fontSize": {"value": 14},
+          "fontSize": {"value": 10},
           "fill": {"value": "orange"}
         }
       },
