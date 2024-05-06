@@ -6,3 +6,5 @@ This PowerQuery template solution solves the following problems when using Table
 2. Table.Pivot is applied without aggregation and in a data refresh two values occur for the same entity and attribute. In this case the refresh wouldn't even show an error in Power BI service, the values would just be discarded resulting in incorrect data. In Power BI Desktop, on the other hand, refresh would fail in this case, leaving people wondering why refresh seems to work in Power BI service but not in Power BI Desktop. That's why aggregation should be mandatory.
 3. Different attributes can be of different data type and require different aggreation rules.
 4. Provide default values, individually per attribute and in the correct data type, if a entity doesn't have a certain attribute.
+
+Implementing these exceptions is most relevant with (scheduled) refresh scenarios in Power BI Service. For a one-time data load and analysis you can keep it simpler, of course, as long as you get the results you need.
