@@ -2,7 +2,7 @@
 Remove-Variable -Name * -ErrorAction SilentlyContinue
 
 # Configuration
-$ExportRootPath = "C:\Temp\TripsReports\Datasets"
+$ExportRootPath = "C:\Temp\Backup\Datasets"
 
 # Interactive login to Power BI API
 Connect-PowerBIServiceAccount
