@@ -1,0 +1,124 @@
+{
+  "data": [
+    {
+      "name": "dataset"
+    },
+    {
+      "name": "origin",
+      "values": [
+        {"Customer": "Start", "Rank": 0.0, "Sales": 0.0, "Tooltip": 0.0, "RankCum": 0.0, "SalesCum": 0.0}
+      ]
+    },
+    {
+      "name": "sorted",
+      "source": ["dataset"],
+      "transform": [
+          {
+            "type": "collect",
+            "sort":  {
+              "field": "Sales",
+              "order": "descending"
+            }
+          },
+          {
+              "type": "window",
+              "frame": [null, 0],
+              "ops": ["sum"],
+              "fields": [
+                  "Rank"
+              ],
+              "as": [
+                  "RankCum"
+              ]
+          },
+          {
+              "type": "window",
+              "frame": [null, 0],
+              "ops": ["sum"],
+              "fields": [
+                  "Sales"
+              ],
+              "as": [
+                  "SalesCum"
+              ]
+          }
+      ]
+    },
+    {
+      "name": "combined",
+      "source": ["origin", "sorted"]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "domain": [0,1],
+      "range": "width",
+      "zero": true
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [0,1],
+      "range": "height",
+      "zero": true,
+      "nice": true
+    }
+  ],
+  "axes": [
+    {"orient": "bottom", "scale": "x", "format": "%", "domain": true},
+    {"orient": "left", "scale": "y", "format": "%", "domain": true, "grid": true, "gridColor": "black", "gridOpacity": 0.2, "gridWidth": 1, "gridDash": [10,5], "tickCount": 4}
+  ],
+  "marks": [
+    {
+      "type": "line",
+      "aria": false,
+      "from": {"data": "combined"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "RankCum"},
+          "y": {"scale": "y", "field": "SalesCum"},
+          "stroke": {"value": "orange"},
+          "strokeWidth": {"value": 2}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "combined"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "RankCum"},
+          "y": {"scale": "y", "field": "SalesCum"},
+          "size": {"value": 40},
+          "fill": {"value": "orange"},
+          "tooltip": 
+            {"signal": "datum['Customer'] + ': ' + pbiFormat(datum['Tooltip'], '$#,0.00;($#,0.00);$#,0.00') + '\\n​\\n' + 'Cumulated: ' + pbiFormat(datum['SalesCum'], '#,0.0%;-#,0.0%;#,0.0%')"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "combined"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "RankCum", "offset": 2},
+          "y": {"scale": "y", "field": "SalesCum", "offset": 3},
+          "text": {"signal": "pbiFormat(datum['SalesCum'], '#,0.0%;-#,0.0%;#,0.0%')"},
+          "fontSize": {"value": 10},
+          "fill": {"value": "orange"}
+        }
+      },
+      "transform": [
+        {
+          "type": "label",
+          "anchor": ["bottom"],
+          "offset": [12],
+          "size": {"signal": "[width + 60, height + 10]"},
+          "padding": -12
+        }
+      ]
+    }
+  ]
+}
