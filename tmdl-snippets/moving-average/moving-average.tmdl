@@ -1,0 +1,299 @@
+createOrReplace
+
+	table 'CG Smoothing'
+		lineageTag: 44d22787-5860-4902-a2d8-4f8d905bd956
+
+		calculationGroup
+
+			calculationItem Selected = SELECTEDMEASURE ()
+
+			calculationItem '3M Mov. Avg. Past (Calendar Month)' = ```
+					
+					
+					VAR _NumberOfMonths = 3
+					
+					RETURN
+					
+					IF (
+					    NOT ( ISEMPTY ( 'DIM_CALENDAR' ) ),
+					
+					    VAR _MonthsPast = _NumberOfMonths - 1
+					
+					    VAR _CurrentMonth = MAX ( 'DIM_CALENDAR'[# Rel. Month] )
+					
+					    VAR _CalendarMonths =
+					        TREATAS (
+					            INTERSECT (
+					                GENERATESERIES (
+					                    _CurrentMonth - _MonthsPast,
+					                    _CurrentMonth,
+					                    1
+					                ),
+					                ALL ( 'DIM_CALENDAR'[# Rel. Month] )
+					            ),
+					            'DIM_CALENDAR'[# Rel. Month]        // This moving average approach assumes a column with consecutive month numbers in the date table.
+					        )  
+					    
+					    RETURN
+					
+					    CALCULATE (
+					        AVERAGEX (
+					            _CalendarMonths,
+					            SELECTEDMEASURE () + 0              // + 0 to take months with blank value into account. Remove + 0 if months with blank values shall not impact the average.
+					        ),
+					        REMOVEFILTERS ( 'DIM_CALENDAR' )        // Use ALLSELECTED for filter-safe columns.
+					    )
+					)
+					```
+
+				formatStringDefinition = "#,0.0"
+
+			calculationItem '3M Mov. Avg. Center (Calendar Month)' =
+					
+					
+					VAR _NumberOfMonths = 3
+					
+					RETURN
+					
+					IF (
+					    NOT ( ISEMPTY ( 'DIM_CALENDAR' ) ),
+					
+					    VAR _MonthsFuture = INT ( _NumberOfMonths / 2 )
+					
+					    VAR _MonthsPast = _NumberOfMonths - _MonthsFuture - 1
+					
+					    VAR _CurrentMonth = MAX ( 'DIM_CALENDAR'[# Rel. Month] )
+					
+					    VAR _CalendarMonths =
+					        TREATAS (
+					            INTERSECT (
+					                GENERATESERIES (
+					                    _CurrentMonth - _MonthsPast,
+					                    _CurrentMonth + _MonthsFuture,
+					                    1
+					                ),
+					                ALL ( 'DIM_CALENDAR'[# Rel. Month] )
+					            ),
+					            'DIM_CALENDAR'[# Rel. Month]  // This moving average approach assumes a column with consecutive month numbers in the date table.
+					        )
+					
+					    RETURN
+					
+					    CALCULATE (
+					        AVERAGEX (
+					            _CalendarMonths,
+					            SELECTEDMEASURE () + 0              // + 0 to take months with blank value into account. Remove + 0 if months with blank values shall not impact the average.
+					        ),
+					        REMOVEFILTERS ( 'DIM_CALENDAR' )        // Use ALLSELECTED for filter-safe columns.
+					    )
+					)
+
+				formatStringDefinition = "#,0.0"
+
+			calculationItem '3M Mov. Avg. Past (Rolling Month)' = ```
+					
+					
+					VAR _NumberOfMonths = 3
+					
+					RETURN
+					
+					IF (
+					    NOT ( ISEMPTY ( 'DIM_CALENDAR' ) ),
+					
+					    VAR _CurrentPeriodEnd = MAX ( 'DIM_CALENDAR'[DATE_DT] )
+					
+					    VAR _StartDate = 
+					        IF (
+					            _CurrentPeriodEnd = EOMONTH ( _CurrentPeriodEnd, 0 ),
+					            EOMONTH( _CurrentPeriodEnd, -_NumberOfMonths) + 1,
+					            EDATE ( _CurrentPeriodEnd, -_NumberOfMonths ) + 1
+					        )
+					
+					    VAR _MonthlyEndDates = // we need to calculate one value per month, otherwise this calculation item would only work correctly for fully additive measure, i.e., such measure where the total row is always the sum of the individual rows in a matrix.
+					        ADDCOLUMNS (
+					            GENERATESERIES ( -_NumberOfMonths + 1, 0, 1 ),
+					            "@RangeEnd",
+					            IF (                                        // If range ends at full calendar month, include exact calendar months, otherwise use EDATE logic.
+					                _CurrentPeriodEnd = EOMONTH ( _CurrentPeriodEnd, 0 ),
+					                EOMONTH( _CurrentPeriodEnd, [Value] ),  // https://dax.guide/eomonth/
+					                EDATE ( _CurrentPeriodEnd, [Value] )    // https://dax.guide/edate/
+					            )
+					        )
+					
+					    VAR _MonthlyStartDates =
+					        ADDCOLUMNS (
+					            _MonthlyEndDates,
+					            "@RangeStart",
+					            IF (
+					                [Value] = -_NumberOfMonths + 1,
+					                _StartDate,
+					
+					                VAR _CurrentRow = [Value]
+					
+					                RETURN
+					
+					                SELECTCOLUMNS (
+					                    FILTER ( _MonthlyEndDates, [Value] = _CurrentRow - 1 ),
+					                    [@RangeEnd]
+					                ) + 1
+					            )
+					        )
+					
+					    VAR _DateRange = DATESBETWEEN ( 'DIM_CALENDAR'[DATE_DT], _StartDate, _CurrentPeriodEnd )
+					
+					    VAR _MonthlyValues =
+							CALCULATETABLE (
+								ADDCOLUMNS (
+									_MonthlyStartDates,
+									"@MonthlyValue",
+						
+									VAR _MonthStartDate = [@RangeStart]
+						
+									VAR _MonthEndDate = [@RangeEnd]
+						
+									RETURN
+						
+									CALCULATE (
+										SELECTEDMEASURE (),
+										FILTER (
+											_DateRange,
+											AND ( [DATE_DT] >= [@RangeStart], [DATE_DT] <= [@RangeEnd] )
+										)
+									)
+								),
+								REMOVEFILTERS ( 'DIM_CALENDAR' ),       // Use ALLEXCEPT for filter-safe columns. https://www.daxpatterns.com/custom-time-related-calculations/#:~:text=the%20concept%20of-,filter%2Dsafe,-columns.%20In%20a
+							)
+					
+					    VAR _TotalValue = SUMX ( _MonthlyValues, [@MonthlyValue] )
+					
+					    VAR _ExpectedDays = INT ( _CurrentPeriodEnd - _StartDate + 1 )
+					
+					    VAR _EffectiveNumberOfMonths =
+					        DIVIDE (
+					            COUNTROWS ( _DateRange ),
+					            _ExpectedDays
+					        ) * _NumberOfMonths
+					
+					    RETURN
+					
+					    DIVIDE ( _TotalValue, _EffectiveNumberOfMonths )
+					)
+					```
+
+				formatStringDefinition = "#,0.0"
+
+			calculationItem '3M Mov. Avg. Center (Rolling Month)' = ```
+					
+					
+					VAR _NumberOfMonths = 3
+					
+					RETURN
+					
+					IF (
+					    NOT ( ISEMPTY ( 'DIM_CALENDAR' ) ),
+					
+					    VAR _MonthsFuture = INT ( _NumberOfMonths / 2 )
+					
+					    VAR _MonthsPast = _NumberOfMonths - _MonthsFuture - 1
+					
+					    VAR _CurrentPeriodEnd = MAX ( 'DIM_CALENDAR'[DATE_DT] )
+					
+					    VAR _StartDate = 
+					        IF (
+					            _CurrentPeriodEnd = EOMONTH ( _CurrentPeriodEnd, 0 ),
+					            EOMONTH(_CurrentPeriodEnd, -_MonthsPast - 1 ) + 1,
+					            EDATE ( _CurrentPeriodEnd, -_MonthsPast - 1 ) + 1
+					        )
+					
+					    VAR _MonthlyEndDates = // we need to calculate one value per month, otherwise this calculation item would only work correctly for fully additive measure, i.e., such measure where the total row is always the sum of the individual rows in a matrix.
+					        ADDCOLUMNS (
+					            GENERATESERIES ( -_MonthsPast, _MonthsFuture, 1 ),
+					            "@RangeEnd",
+					            IF (                                    // If range ends at full calendar month, include exact calendar months, otherwise use EDATE logic.
+					                _CurrentPeriodEnd = EOMONTH ( _CurrentPeriodEnd, 0 ),
+					                EOMONTH( _CurrentPeriodEnd, [Value] ),  // https://dax.guide/eomonth/
+					                EDATE ( _CurrentPeriodEnd, [Value] )    // https://dax.guide/edate/
+					            )
+					        )
+					
+					    VAR _EndDate = MAXX ( _MonthlyEndDates, [@RangeEnd] )
+					
+					    VAR _MonthlyStartDates =
+					        ADDCOLUMNS (
+					            _MonthlyEndDates,
+					            "@RangeStart",
+					            IF (
+					                [Value] = -_MonthsPast,
+					                _StartDate,
+					
+					                VAR _CurrentRow = [Value]
+					
+					                RETURN
+					
+					                SELECTCOLUMNS (
+					                    FILTER ( _MonthlyEndDates, [Value] = _CurrentRow - 1 ),
+					                    [@RangeEnd]
+					                ) + 1
+					            )
+					        )
+					
+					    VAR _DateRange = DATESBETWEEN ( 'DIM_CALENDAR'[DATE_DT], _StartDate, _EndDate )
+					    
+					    VAR _MonthlyValues =
+					        CALCULATETABLE (
+					            ADDCOLUMNS (
+					                _MonthlyStartDates,
+					                "@MonthlyValue",
+					
+					                VAR _MonthStartDate = [@RangeStart]
+					
+					                VAR _MonthEndDate = [@RangeEnd]
+					
+					                RETURN
+					
+					                CALCULATE (
+					                    SELECTEDMEASURE (),
+					                    FILTER (
+					                        _DateRange,
+					                        AND ( [DATE_DT] >= [@RangeStart], [DATE_DT] <= [@RangeEnd] )
+					                    )
+					                )
+					            ),
+					            REMOVEFILTERS ( 'DIM_CALENDAR' ),       // Use ALLEXCEPT for filter-safe columns. https://www.daxpatterns.com/custom-time-related-calculations/#:~:text=the%20concept%20of-,filter%2Dsafe,-columns.%20In%20a
+					        )
+					
+					    VAR _TotalValue = SUMX ( _MonthlyValues, [@MonthlyValue] )
+					
+					    VAR _ExpectedDays = INT ( _EndDate - _StartDate + 1 )
+					
+					    VAR _EffectiveNumberOfMonths =
+					        DIVIDE (
+					            COUNTROWS ( _DateRange ),
+					            _ExpectedDays
+					        ) * _NumberOfMonths
+					
+					    RETURN
+					
+					    DIVIDE ( _TotalValue, _EffectiveNumberOfMonths )
+					)
+					```
+
+				formatStringDefinition = "#,0.0"
+
+		column Average
+			dataType: string
+			lineageTag: 5d86ad88-e502-4ad7-bd8d-cfead43e64cc
+			summarizeBy: none
+			sourceColumn: Name
+			sortByColumn: Ordinal
+
+			annotation SummarizationSetBy = Automatic
+
+		column Ordinal
+			dataType: int64
+			formatString: 0
+			lineageTag: 10042f20-a493-45b6-8c57-2de72e6cfbef
+			summarizeBy: sum
+			sourceColumn: Ordinal
+
+			annotation SummarizationSetBy = Automatic
