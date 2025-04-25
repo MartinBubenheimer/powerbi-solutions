@@ -37,7 +37,7 @@ let
     TokenJson   = try Json.Document(TokenRaw) otherwise null,
 
     AccessToken =
-        if TokenStatus = 200 and TokenJson?[access_token] <> null then
+        if TokenStatus = 200 and TokenJson[access_token] <> null then
             TokenJson[access_token]
         else
             error
